@@ -13,7 +13,10 @@ for i in range(1, rownum):
 	ret[table.cell(i,0).value] = {}
 for i in range(1, colnum):
 	for j in range(1, rownum):
-		ret[table.cell(j, 0).value][str(int(table.cell(0, i).value))] = str(table.cell(j, i).value)
+		v = str(table.cell(j, i).value)
+		if v == '' or v == ' ':
+			v = '-1'
+		ret[table.cell(j, 0).value][str(int(table.cell(0, i).value))] = v
 
 print '{'
 cnt1 = 0
